@@ -1,0 +1,28 @@
+{
+  "name": "template-typescript-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build tsconfig.json",
+    "build:release": "npm run clean && tsc --build tsconfig.release.json && npm run zip",
+    "build:full": "npm run clean && tsc --build tsconfig.json",
+    "clean": "rimraf dist && rimraf public",
+    "start": "node dist/index.js",
+    "start:dev": "npm run build:full && node dist/index.js",
+    "zip": "7z a -tzip dist.zip dist LICENSE .env.example package.json package-lock.json"
+  },
+  "keywords": [],
+  "author": "Serabus/McCoughskii",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
